@@ -6,6 +6,7 @@ import {Busqueda} from '../modelos/busqueda'
 import {ClienteService} from '../Servicios/cliente.service';
 import { ModalController } from '@ionic/angular';
 import { DetallePage } from '../detalle/detalle.page';
+import {Log} from '../modelos/log';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,7 +17,7 @@ export class HomePage {
   listaCampanias:any=[];
   Campania:string='';
   anio:string='';
-  termino:boolean=true;
+  termino:boolean=false;
   isConnected = false;
   Resultado:any=[];
   constructor(public toastController: ToastController,
@@ -84,10 +85,12 @@ export class HomePage {
         console.log('resultado', res);
         if (this.Resultado.length == 0) {
           this.presentToast('No se a encontrado ningun paquete');
-         
+          this.Guargar(bus,false);
         } else {
           console.log('Resultado',this.Resultado);
+          this.Guargar(bus,true);
           this.MostrarDetalle(this.Resultado);
+          this.Limpiar();
         }
         loadings.dismiss();
       },
@@ -97,6 +100,30 @@ export class HomePage {
         loadings.dismiss();
       }
     );
+  }
+  Limpiar(){
+    (<HTMLInputElement>document.getElementById("txtCI")).value='';
+    (<HTMLIonSelectElement>document.getElementById("selCamnia")).value='';
+    (<HTMLIonSelectElement>document.getElementById("selAnio")).value='';
+  }
+  Guargar(bus:Busqueda,exi:Boolean){
+    let exit:string='0';
+    if(exi){
+      exit='1';
+    }
+    let lo:Log={
+      idcliente:'1'+bus.cedula,
+      anio:bus.anio,
+      campania:bus.campania,
+      exitosa:exit
+    
+    }
+    this.cliService.postLog(lo).subscribe(res => {
+      
+    },
+    err => {
+      console.log(err);
+    });
   }
   async presentToast(msj: string) {
     const toast = await this.toastController.create({
