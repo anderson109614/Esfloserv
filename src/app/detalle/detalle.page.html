@@ -105,15 +105,7 @@
     <ion-card-content>
       
 
-      <ion-item>
-        <ion-label>
-          Ingreso: {{detalle[0].ingresado}}
-        </ion-label>
-        <ion-button fill="outline" color="success" slot="end" >
-         
-          <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
-        </ion-button>
-      </ion-item>
+      
       <ion-item>
         <ion-label>
           Bodega: {{detalle[0].bodega}}
@@ -123,34 +115,41 @@
           <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
         </ion-button>
       </ion-item>
-      <ion-item>
-        <ion-label>
-          En Reparto: {{detalle[0].reparto}}
-        </ion-label>
-        <ion-button fill="outline" color="success" slot="end" >
-         
-          <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          Entregado: {{detalle[0].entregado}}
-        </ion-label>
-       
-         <div id="divListo" style="display: none;">
+      <div id="divEstados" style="display: none;">
+        <ion-item>
+          <ion-label>
+            En Reparto: {{detalle[0].reparto}}
+          </ion-label>
           <ion-button fill="outline" color="success" slot="end" >
-          <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
+           
+            <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
           </ion-button>
-         </div>
-         <div id="divEspera" style="display: none;">
-          <ion-button fill="outline"  slot="end" >
-            <ion-icon name="swap-vertical-outline" zise="large"></ion-icon>
-          </ion-button>
-          
-         </div>
-          
-        
-      </ion-item>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>
+  
+            <h2 style="width: 100%;
+          white-space: nowrap;
+          overflow: hidden; white-space: initial;"> Entregado: {{detalle[0].entregado}}</h2>
+  
+          </ion-label>
+          <div id="divListo" style="display: none;">
+            <ion-button fill="outline" color="success" slot="end" >
+            <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
+            </ion-button>
+           </div>
+           <div id="divEspera" style="display: none;">
+            <ion-button fill="outline"  slot="end" >
+              <ion-icon name="swap-vertical-outline" zise="large"></ion-icon>
+            </ion-button>
+            
+           </div>
+        </ion-item>
+      </div>
+      
+
+      
 
     </ion-card-content>
 
@@ -189,9 +188,21 @@
       <ion-card-title>Fotografias</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      
+    <div id="divimg1" style="display: none;"> 
       <img [src]="img1" *ngIf="img1" width="100%" height="300px"/>
+    </div>
+
+     <div id="divimg2" style="display: none;">
       <img [src]="img2" *ngIf="img2" width="100%" height="300px"/>
-      <img [src]="img3" *ngIf="img3" width="100%" height="300px"/>
+     </div>  
+
+      <div id="divimg3" style="display: none;">
+        <img [src]="img3" *ngIf="img3" width="100%" height="300px"/>
+     </div>
+      
+      
+     
       
 
     </ion-card-content>
@@ -199,7 +210,58 @@
 
   </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Porteador</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
 
+      
+      <ion-item-sliding *ngIf="listaPor[0].paqentrega_observacion" >
+        <ion-item>
+          <ion-label>
+
+            <h2 style="width: 100%;
+          white-space: nowrap;
+          overflow: hidden; white-space: initial;">Observacion: {{listaPor[0].paqentrega_observacion}}</h2>
+
+          </ion-label>
+          
+        </ion-item>
+      </ion-item-sliding>
+
+      <ion-item-sliding >
+        <ion-item>
+          <ion-label>
+
+            <h2 style="width: 100%;
+          white-space: nowrap;
+          overflow: hidden; white-space: initial;">Cedula: {{listaPor[0].idPorteador}}</h2>
+
+          </ion-label>
+          
+        </ion-item>
+      </ion-item-sliding>
+      <ion-item-sliding >
+        <ion-item>
+          <ion-label>
+
+            <h2 style="width: 100%;
+          white-space: nowrap;
+          overflow: hidden; white-space: initial;">Nombre: {{listaPor[0].Nombres}}</h2>
+
+          </ion-label>
+          
+        </ion-item>
+      </ion-item-sliding>
+
+
+
+    </ion-card-content>
+
+
+  </ion-card>
 
 
 

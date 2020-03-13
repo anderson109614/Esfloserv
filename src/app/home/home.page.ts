@@ -33,7 +33,7 @@ export class HomePage {
     this.listaAnios.push(year);
     this.listaAnios.push(year-1);
     this.listaAnios.push(year-2);
-    for(var i=1;i<=30;i++){
+    for(var i=1;i<=20;i++){
       this.listaCampanias.push(i);
     }
     this.networkService.getNetworkStatus().subscribe((connected: boolean) => {

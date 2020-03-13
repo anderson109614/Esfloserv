@@ -13,6 +13,7 @@ export class DetallePage implements OnInit {
   @Input() camp: string;
   @Input() ani: string;
   listaEstados:any=[];
+  listaPor:any=[];
   listaFueraCaja:any=[];
   img1:string='';
   img2:string='';
@@ -22,9 +23,14 @@ export class DetallePage implements OnInit {
 
   ngOnInit() {
     console.log('det',this.detalle);
+    
     this.cargarEstado();
     this.cargarFueraCaja();
     this.cargarImagenes();
+    this.cargarProteador();
+    if(this.detalle.status10!='02'){
+      (<HTMLDivElement>document.getElementById("divEstados")).style.display="block";
+    }
 
   }
   cargarFueraCaja(){
@@ -42,11 +48,37 @@ export class DetallePage implements OnInit {
       console.log(err);
     });
   }
+  cargarProteador(){
+   
+    this.cliService.getPorteador(this.detalle[0].codpaquete).subscribe(res => {
+     this.listaPor=res;
+     console.log('porteador',this.listaPor);
+    },
+    err => {
+      console.log(err);
+    });
+  }
   cargarImagenes(){
     this.cliService.getImagenes(this.detalle[0].codpaquete).subscribe(res => {
-      this.img1=res[0].image_paq;
-      this.img2=res[0].image_paq2;
-      this.img3=res[0].image_paq3;
+      if(res[0].image_paq.length>45){
+        
+        this.img1=res[0].image_paq;
+        (<HTMLDivElement>document.getElementById("divimg1")).style.display="block";
+         
+      }
+
+      if(res[0].image_paq2.length>45){
+        (<HTMLDivElement>document.getElementById("divimg2")).style.display="block";
+        this.img2=res[0].image_paq2;
+      }
+      if(res[0].image_paq3.length>45){
+        (<HTMLDivElement>document.getElementById("divimg3")).style.display="block";
+        this.img3=res[0].image_paq3;
+      }
+      
+      
+      
+      
     },
     err => {
       console.log(err);
