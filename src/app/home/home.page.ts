@@ -17,7 +17,7 @@ export class HomePage {
   listaCampanias:any=[];
   Campania:string='';
   anio:string='';
-  termino:boolean=false;
+  termino:boolean=true;
   isConnected = false;
   Resultado:any=[];
   constructor(public toastController: ToastController,
@@ -81,8 +81,9 @@ export class HomePage {
     loadings.present();
     this.cliService.getBusquedaPaquetes(bus).subscribe(
       res => {
-        this.Resultado = res;
         console.log('resultado', res);
+        this.Resultado = res;
+        
         if (this.Resultado.length == 0) {
           this.presentToast('No se a encontrado ningun paquete');
           this.Guargar(bus,false);

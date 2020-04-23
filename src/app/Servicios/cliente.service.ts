@@ -24,6 +24,9 @@ export class ClienteService {
   getPorteador(Codigo:string){
     return this.http.get(this.url + 'Cliente/Porteador.php?cod='+Codigo)
   }
+  getPorteadorZona(Zona:string,seccion:string){
+    return this.http.get(this.url + 'Cliente/PorteadorZS.php?idZona='+Zona+'&seccion='+seccion)
+  }
   postLog(lo:Log){
     return this.http.post<Log>(this.url + 'Cliente/Paquete.php',lo)
   }

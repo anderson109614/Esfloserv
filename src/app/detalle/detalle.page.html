@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-button autoHide="false" (click)="regresarBTN()">
         
@@ -11,85 +11,92 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
-  <ion-card>
+  <ion-card color="light">
     <ion-card-header>
-      <ion-card-title>Informacion del Representante</ion-card-title>
+      <ion-card-title><b> Informacion del Representante</b></ion-card-title>
     </ion-card-header>
     <ion-card-content>
 
-      <ion-item>
+      <ion-item color="light">
         <ion-label>
-          ID : {{detalle[0].codigo}}
+          <b>ID:</b> {{detalle[0].codigo}}
         </ion-label>
       </ion-item>
 
-      <ion-item-sliding>
-        <ion-item>
+      <ion-item-sliding >
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Nombres: {{detalle[0].representante}}</h2>
+          overflow: hidden; white-space: initial;"><b>Nombres:</b> {{detalle[0].representante}}</h2>
 
           </ion-label>
 
         </ion-item>
       </ion-item-sliding>
-      <ion-item>
+
+      <ion-item color="light">
         <ion-label>
-          Campaña : {{camp}}
+         <b>Campaña :</b> {{camp}}
         </ion-label>
       </ion-item>
-      <ion-item>
+
+      <ion-item color="light">
         <ion-label>
-          Año : {{ani}}
+         <b>Año :</b> {{ani}}
         </ion-label>
       </ion-item>
-      <ion-item-sliding>
-        <ion-item>
+
+      <ion-item-sliding >
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Direccion: {{detalle[0].direccion}}</h2>
+          overflow: hidden; white-space: initial;"><b>Direccion:</b> {{detalle[0].direccion}}</h2>
 
           </ion-label>
 
         </ion-item>
       </ion-item-sliding>
-      <ion-item>
+
+      <ion-item color="light">
         <ion-label>
-          Ciudad : {{detalle[0].ciudad}}
+          <b>Ciudad :</b> {{detalle[0].ciudad}}
         </ion-label>
       </ion-item>
       
-      <ion-item-sliding>
-        <ion-item>
+      <ion-item-sliding >
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Telefonos: {{detalle[0].telefonos}}</h2>
+          overflow: hidden; white-space: initial;"><b>Telefonos:</b> {{detalle[0].telefonos}}</h2>
 
           </ion-label>
 
         </ion-item>
       </ion-item-sliding>
-      <ion-item>
+
+      <ion-item color="light">
         <ion-label>
-          Zona : {{detalle[0].zona}}
+         <b>Zona :</b> {{detalle[0].zona}}
         </ion-label>
       </ion-item>
-      <ion-item>
+
+      <ion-item color="light">
         <ion-label>
-          Seccion : {{detalle[0].seccion}}
+         <b>Seccion :</b> {{detalle[0].seccion}}
         </ion-label>
-      </ion-item>
-      <ion-item>
+      </ion-item >
+
+      <ion-item color="light">
         <ion-label>
-          Estado : {{estado}}
+         <b>Estado :</b> {{estado}}
         </ion-label>
       </ion-item>
 
@@ -98,27 +105,28 @@
 
 
   </ion-card>
-  <ion-card>
+  <ion-card color="light">
     <ion-card-header>
-      <ion-card-title>Fechas</ion-card-title>
+      <ion-card-title><b>Fechas</b></ion-card-title>
     </ion-card-header>
     <ion-card-content>
       
 
       
-      <ion-item>
+      <ion-item color="light">
         <ion-label>
-          Bodega: {{detalle[0].bodega}}
+          <b>Bodega:</b> {{detalle[0].bodega}}
         </ion-label>
         <ion-button fill="outline" color="success" slot="end" style="border: none;">
          
           <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
         </ion-button>
       </ion-item>
+
       <div id="divEstados" style="display: none;">
-        <ion-item>
+        <ion-item color="light">
           <ion-label>
-            En Reparto: {{detalle[0].reparto}}
+           <b>En Reparto:</b> {{detalle[0].reparto}}
           </ion-label>
           <ion-button fill="outline" color="success" slot="end" >
            
@@ -126,12 +134,12 @@
           </ion-button>
         </ion-item>
   
-        <ion-item>
+        <ion-item color="light"> 
           <ion-label>
   
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;"> Entregado: {{detalle[0].entregado}}</h2>
+          overflow: hidden; white-space: initial;"> <b>Entregado:</b>  {{detalle[0].entregado}}</h2>
   
           </ion-label>
           <div id="divListo" style="display: none;">
@@ -139,6 +147,7 @@
             <ion-icon name="thumbs-up-outline" zise="large"></ion-icon>
             </ion-button>
            </div>
+           
            <div id="divEspera" style="display: none;">
             <ion-button fill="outline"  slot="end" >
               <ion-icon name="swap-vertical-outline" zise="large"></ion-icon>
@@ -156,16 +165,16 @@
 
   </ion-card>
 
-  <ion-card>
+  <ion-card color="light">
     <ion-card-header>
-      <ion-card-title>Paquete:{{detalle[0].codpaquete}}</ion-card-title>
+      <ion-card-title><b>Paquete:</b>{{detalle[0].codpaquete}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       
 
       
       <ion-item-sliding *ngFor="let paquete of listaFueraCaja">
-        <ion-item>
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
@@ -183,9 +192,9 @@
 
 
   </ion-card>
-  <ion-card>
+  <ion-card color="light">
     <ion-card-header>
-      <ion-card-title>Fotografias</ion-card-title>
+      <ion-card-title><b>Fotografias</b></ion-card-title>
     </ion-card-header>
     <ion-card-content>
       
@@ -210,53 +219,73 @@
 
   </ion-card>
 
-  <ion-card>
+  <ion-card color="light">
     <ion-card-header>
-      <ion-card-title>Porteador</ion-card-title>
+      <ion-card-title><b>Porteador</b></ion-card-title>
     </ion-card-header>
     <ion-card-content>
       
 
       
-      <ion-item-sliding *ngIf="listaPor[0].paqentrega_observacion" >
-        <ion-item>
+     
+
+
+      <!--
+      <ion-item-sliding >
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Observacion: {{listaPor[0].paqentrega_observacion}}</h2>
+          overflow: hidden; white-space: initial;"><b>Cedula:</b>  {{listaPor[0].idPorteador}}</h2>
 
           </ion-label>
           
         </ion-item>
       </ion-item-sliding>
+
+-->
+
+
 
       <ion-item-sliding >
-        <ion-item>
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Cedula: {{listaPor[0].idPorteador}}</h2>
+          overflow: hidden; white-space: initial;"><b>Nombre:</b> {{listaPor[0].Nombres}}</h2>
 
           </ion-label>
           
         </ion-item>
       </ion-item-sliding>
+      
       <ion-item-sliding >
-        <ion-item>
+        <ion-item color="light">
           <ion-label>
 
             <h2 style="width: 100%;
           white-space: nowrap;
-          overflow: hidden; white-space: initial;">Nombre: {{listaPor[0].Nombres}}</h2>
+          overflow: hidden; white-space: initial;"><b>Celular:</b> {{listaPor[0].celular1}}</h2>
 
           </ion-label>
           
         </ion-item>
       </ion-item-sliding>
+      <!--*ngIf="listaPor[0].paqentrega_observacion"-->
+      <ion-item-sliding  *ngIf="listaPor[0].paqentrega_observacion">
+        <ion-item color="light">
+          <ion-label>
 
+            <h2 style="width: 100%;
+          white-space: nowrap;
+          overflow: hidden; white-space: initial;"><b>Observacion:</b> {{listaPor[0].paqentrega_observacion}}</h2>
 
+          </ion-label>
+          
+        </ion-item>
+      </ion-item-sliding>
 
     </ion-card-content>
 

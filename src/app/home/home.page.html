@@ -1,16 +1,16 @@
 
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="light">
   <div style="padding: 20px 20px 20px 20px ;">
     <img src="../../assets/logo.png" alt="">
-    <ion-item>
+    <ion-item color="light">
       <ion-label position="floating">CI del Representante</ion-label>
       <ion-input id="txtCI"></ion-input>
     </ion-item>
     
    
       <!---->
-      <ion-item>
+      <ion-item color="light">
         <ion-label>Campaña</ion-label>
         <ion-select value="" okText="Ok" id="selCamnia" cancelText="Cancelar" placeholder="Selecione" (ionChange)="CampaniaSelected()">
           <ion-select-option value="{{cam}}" *ngFor="let cam of listaCampanias">{{cam}}</ion-select-option>>
@@ -18,14 +18,14 @@
         </ion-select>
       </ion-item>
     
-      <ion-item>
+      <ion-item color="light">
         <ion-label>Año</ion-label>
         <ion-select value="" okText="Ok" id="selAnio" cancelText="Cancelar" placeholder="Selecione" (ionChange)="AnioSelected()">
           <ion-select-option value="{{est}}" *ngFor="let est of listaAnios">{{est}}</ion-select-option>>
         </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox color="success"  id='checkTerminos' (ionChange)="TerminosSelected()"></ion-checkbox>
+      </ion-item >
+      <ion-item color="light">
+      <!--  <ion-checkbox color="success"  id='checkTerminos' (ionChange)="TerminosSelected()"></ion-checkbox>-->
         <ion-label>&nbsp;<a target="_blank" href="https://esfloserv.com/politica_de_privacidad.php"> Acepto términos y condiciones</a></ion-label>
         
       </ion-item>

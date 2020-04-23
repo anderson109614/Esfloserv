@@ -28,8 +28,9 @@ export class DetallePage implements OnInit {
     this.cargarFueraCaja();
     this.cargarImagenes();
     this.cargarProteador();
-    if(this.detalle.status10!='02'){
+    if(this.detalle[0].status10 != '02'){
       (<HTMLDivElement>document.getElementById("divEstados")).style.display="block";
+      console.log('activado');
     }
 
   }
@@ -49,17 +50,28 @@ export class DetallePage implements OnInit {
     });
   }
   cargarProteador(){
-   
+   if(this.detalle[0].status10=='02'){
+    this.cliService.getPorteadorZona(this.detalle[0].zona,this.detalle[0].seccion).subscribe(res => {
+      this.listaPor=res;
+      console.log('porteador',this.listaPor);
+     },
+     err => {
+       console.log(err);
+     });
+   }else{
     this.cliService.getPorteador(this.detalle[0].codpaquete).subscribe(res => {
-     this.listaPor=res;
-     console.log('porteador',this.listaPor);
-    },
-    err => {
-      console.log(err);
-    });
+      this.listaPor=res;
+      console.log('porteador',this.listaPor);
+     },
+     err => {
+       console.log(err);
+     });
+   }
+    
   }
   cargarImagenes(){
     this.cliService.getImagenes(this.detalle[0].codpaquete).subscribe(res => {
+     try {
       if(res[0].image_paq.length>45){
         
         this.img1=res[0].image_paq;
@@ -75,6 +87,10 @@ export class DetallePage implements OnInit {
         (<HTMLDivElement>document.getElementById("divimg3")).style.display="block";
         this.img3=res[0].image_paq3;
       }
+     } catch (error) {
+       
+     }
+      
       
       
       
