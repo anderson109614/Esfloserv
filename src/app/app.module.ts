@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { Network } from '@ionic-native/network/ngx';
 import {DetallePageModule} from './detalle/detalle.module';
 import {DetallePage} from './detalle/detalle.page';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 @NgModule({
   
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import {DetallePage} from './detalle/detalle.page';
   providers: [
     StatusBar,
     Network,
+    CallNumber ,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

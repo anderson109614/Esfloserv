@@ -270,7 +270,9 @@
           overflow: hidden; white-space: initial;"><b>Celular:</b> {{listaPor[0].celular1}}</h2>
 
           </ion-label>
-          
+          <ion-button fill="outline" color="success" slot="end" (click)="callNow(listaPor[0].celular1)">
+            <ion-icon name="call" zise="large"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-item-sliding>
       <!--*ngIf="listaPor[0].paqentrega_observacion"-->

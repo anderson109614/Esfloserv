@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {ClienteService} from '../Servicios/cliente.service';
 import { Busqueda } from '../modelos/busqueda';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 //1804782801;0926515529
 @Component({
   selector: 'app-detalle',
@@ -19,7 +20,7 @@ export class DetallePage implements OnInit {
   img2:string='';
   img3:string='';
   estado:string='';
-  constructor(public modalController: ModalController,public cliService:ClienteService) { }
+  constructor(private callNumber: CallNumber,public modalController: ModalController,public cliService:ClienteService) { }
 
   ngOnInit() {
     console.log('det',this.detalle);
@@ -99,6 +100,11 @@ export class DetallePage implements OnInit {
     err => {
       console.log(err);
     });
+  }
+  callNow(number) {
+    this.callNumber.callNumber(number, true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
   }
   cargarEstado(){
     this.cliService.getEstadosPquetes().subscribe(
